@@ -4,7 +4,7 @@ try {
     node {
       
         stage('Preparation') { 
-            git credentialsId: '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', url: 'https://github.com/Rakesh8007/Calculator-Android.git'
+            git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
         }
       
         stage('Dependencies') {
