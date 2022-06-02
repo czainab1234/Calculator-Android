@@ -1,7 +1,7 @@
-def err = null
-try {
+// def err = null
+// try {
   
-    node {
+//     node {
       
 //         stage('Preparation') { 
 //             git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
@@ -17,39 +17,39 @@ try {
 //                 sh 'echo $JAVA_HOME'
 //         }
         
-        stage('Clean Build') {
+//         stage('Clean Build') {
 //                 dir("android") {
-                    sh "pwd"
-                    sh 'ls -al'
-                    sh './gradlew clean'
+//                     sh "pwd"
+//                     sh 'ls -al'
+//                     sh './gradlew clean'
 //                 }   
-        }
+//         }
         
-        stage('Build release ') {
+//         stage('Build release ') {
 //             parameters {
 //                 credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl', defaultValue: '5d34f6f7-b641-4785-frd5-c93b67e71b6b', description: '', name: 'keystore', required: true
 //             }
 //             dir("android") {
-                sh './gradlew assembleRelease'
+//                 sh './gradlew assembleRelease'
 //             }
-        }
+//         }
       
-        stage('Compile') {
-            archiveArtifacts artifacts: '**/*.abb', fingerprint: true, onlyIfSuccessful: true            
-        }
-    }
+//         stage('Compile') {
+//             archiveArtifacts artifacts: '**/*.abb', fingerprint: true, onlyIfSuccessful: true            
+//         }
+//     }
   
-} catch (caughtError) { 
+// } catch (caughtError) { 
     
-    err = caughtError
-    currentBuild.result = "FAILURE"
+//     err = caughtError
+//     currentBuild.result = "FAILURE"
 
-} finally {
+// } finally {
     
-    if(currentBuild.result == "FAILURE"){
-              sh "echo 'Build FAILURE'"
-    }else{
-         sh "echo 'Build SUCCESSFUL'"
-    }
+//     if(currentBuild.result == "FAILURE"){
+//               sh "echo 'Build FAILURE'"
+//     }else{
+//          sh "echo 'Build SUCCESSFUL'"
+//     }
    
-}
+// }
