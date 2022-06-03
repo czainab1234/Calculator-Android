@@ -9,9 +9,9 @@ pipeline {
                      }
           }
       
-         stage('Preparation') { 
-            git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
-        }
+//          stage('Preparation') { 
+//             git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
+//         }
       
         stage('Dependencies') {
                    
