@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building Assets...'
                    }
                      }
-          }
+//           }
       
 //          stage('Preparation') { 
 //             git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
@@ -32,6 +32,8 @@ pipeline {
                     sh './gradlew clean'
                 }   
         }
+             }
+}
         
 //         stage('Build release ') {
 //             parameters {
