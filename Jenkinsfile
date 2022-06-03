@@ -1,29 +1,37 @@
-// def err = null
-// try {
-  
-//     node {
+pipeline {
+      agent any 
+             stages {
+                stage('Build Assets') {
+                 agent any 
+             steps {
+                echo 'Building Assets...'
+                   }
+                     }
+          }
       
-//         stage('Preparation') { 
-//             git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
-//         }
+         stage('Preparation') { 
+            git url: 'https://github.com/Rakesh8007/Calculator-Android.git'
+        }
       
-//         stage('Dependencies') {
-//                 sh 'sudo npm install -g react-native-cli'
-//                 sh 'npm install'
-//                 sh 'react-native link'
-//                 sh 'export JAVA_HOME=/opt/jdk1.8.0_201'
-//                 sh 'export JRE_HOME=/opt/jdk1.8.0_201/jre'
-//                 sh 'export PATH=$PATH:/opt/jdk1.8.0_201/bin:/opt/jdk1.8.0_201/jre/bin'
-//                 sh 'echo $JAVA_HOME'
-//         }
+        stage('Dependencies') {
+                   
+                sh 'sudo npm install -g react-native-cli'
+                sh 'npm install'
+                sh 'react-native link'
+                sh 'export JAVA_HOME=/opt/jdk1.8.0_201'
+                sh 'export JRE_HOME=/opt/jdk1.8.0_201/jre'
+                   sh 'export ANDROID_HOME=/android-sdk'
+                sh 'export PATH=$PATH:/opt/jdk1.8.0_201/bin:/opt/jdk1.8.0_201/jre/bin'
+                sh 'echo $JAVA_HOME'
+        }
         
-//         stage('Clean Build') {
-//                 dir("android") {
-//                     sh "pwd"
-//                     sh 'ls -al'
-//                     sh './gradlew clean'
-//                 }   
-//         }
+        stage('Clean Build') {
+                dir("android-sdk") {
+                    sh "pwd"
+                    sh 'ls -al'
+                    sh './gradlew clean'
+                }   
+        }
         
 //         stage('Build release ') {
 //             parameters {
@@ -52,23 +60,23 @@
 //          sh "echo 'Build SUCCESSFUL'"
 //     }
    
-// }
-
-pipeline {
-    agent any 
-
-    stages {
-        stage('Build Assets') {
-            agent any 
-            steps {
-                echo 'Building Assets...'
-            }
-        }
-        stage('Test') {
-            agent any
-            steps {
-                echo 'Testing stuff...'
-            }
-        }
-    }
 }
+
+// pipeline {
+//     agent any 
+
+//     stages {
+//         stage('Build Assets') {
+//             agent any 
+//             steps {
+//                 echo 'Building Assets...'
+//             }
+//         }
+//         stage('Test') {
+//             agent any
+//             steps {
+//                 echo 'Testing stuff...'
+//             }
+//         }
+//     }
+// }
