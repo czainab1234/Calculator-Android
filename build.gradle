@@ -6,6 +6,13 @@ buildscript {
         google()
         jcenter()
     }
+    
+    android {
+    ...
+    buildFeatures {
+        viewBinding = true
+    }
+}
 
     dependencies {
         classpath 'com.android.tools.build:gradle:7.1.3'
