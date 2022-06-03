@@ -62,7 +62,7 @@ pipeline {
 //          sh "echo 'Build SUCCESSFUL'"
 //     }
    
-}
+// }
 
 // pipeline {
 //     agent any 
