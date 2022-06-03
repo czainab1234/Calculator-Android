@@ -14,22 +14,26 @@ pipeline {
 //         }
       
         stage('Dependencies') {
-                   
+                steps(
+                 
                 sh 'sudo npm install -g react-native-cli'
                 sh 'npm install'
                 sh 'react-native link'
                 sh 'export JAVA_HOME=/opt/jdk1.8.0_201'
                 sh 'export JRE_HOME=/opt/jdk1.8.0_201/jre'
-                   sh 'export ANDROID_HOME=/android-sdk'
+                sh 'export ANDROID_HOME=/android-sdk'
                 sh 'export PATH=$PATH:/opt/jdk1.8.0_201/bin:/opt/jdk1.8.0_201/jre/bin'
                 sh 'echo $JAVA_HOME'
+                    )
         }
         
         stage('Clean Build') {
+            steps(
                 dir("android-sdk") {
                     sh "pwd"
                     sh 'ls -al'
                     sh './gradlew clean'
+                  )
                 }   
         }
              }
