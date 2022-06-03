@@ -16,7 +16,7 @@ pipeline {
         stage('Dependencies') {
                 steps(
                  
-                sh 'sudo npm install -g react-native-cli'
+//                 sh 'sudo npm install -g react-native-cli'
                 sh 'npm install'
                 sh 'react-native link'
                 sh 'export JAVA_HOME=/opt/jdk1.8.0_201'
