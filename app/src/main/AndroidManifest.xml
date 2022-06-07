@@ -344,5 +344,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
+        <style name="AppTheme" parent="Theme.AppCompat.Light">
+       ....customize Theme....
+       </style>
     </application>
 </manifest>
